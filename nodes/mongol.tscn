@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://cysa2nrptqdqq"]
-
-[node name="mongol" type="Node2D"]
-
-[node name="Window" type="Window" parent="."]

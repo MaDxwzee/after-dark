@@ -1,0 +1,170 @@
+[gd_scene load_steps=14 format=3 uid="uid://doxmogv7i3c0t"]
+
+[ext_resource type="Script" path="res://code/parallax_background.gd" id="1_abkow"]
+[ext_resource type="Texture2D" uid="uid://bj8xiw3yd4sjm" path="res://assests/Clouds/Clouds 3/1.png" id="2_ofmdo"]
+[ext_resource type="Texture2D" uid="uid://dm8g4y1niril" path="res://assests/Clouds/Clouds 3/2.png" id="3_j2y4q"]
+[ext_resource type="Texture2D" uid="uid://dcb5twmw5vrv7" path="res://assests/Clouds/Clouds 3/3.png" id="4_d82bh"]
+[ext_resource type="Texture2D" uid="uid://cfq5cfthhvcbe" path="res://assests/Clouds/Clouds 3/4.png" id="5_rhmmc"]
+[ext_resource type="FontFile" uid="uid://c5lrnlbhk6phh" path="res://assests/Free Pixel Art Forest/PlayfulTime-BLBB8.ttf" id="6_s330s"]
+[ext_resource type="PackedScene" uid="uid://bsofk6175dqvm" path="res://nodes/light.tscn" id="7_j0jmk"]
+[ext_resource type="Texture2D" uid="uid://dyvxtatrlwb45" path="res://assests/New Piskel.png" id="9_ofoi8"]
+[ext_resource type="PackedScene" uid="uid://bopni6qd1hgk4" path="res://nodes/mcm.tscn" id="9_sxad5"]
+
+[sub_resource type="Gradient" id="Gradient_2rbqi"]
+offsets = PackedFloat32Array(0, 0.996016, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.716296, 0.716296, 0.716296, 1, 0.728822, 0.728822, 0.728822, 0.670588)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_85g0j"]
+gradient = SubResource("Gradient_2rbqi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k3ncb"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(600, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0.1, 1, 0)
+spread = 0.0
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.7
+color = Color(1, 1, 1, 0.701961)
+color_ramp = SubResource("GradientTexture1D_85g0j")
+collision_mode = 2
+collision_use_scale = true
+sub_emitter_mode = 3
+sub_emitter_amount_at_collision = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8a0id"]
+size = Vector2(480, 32)
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+layer = 0
+script = ExtResource("1_abkow")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.05, 0.05)
+motion_mirroring = Vector2(1152, 1152)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4"]
+self_modulate = Color(0.262932, 0.262932, 0.262932, 1)
+position = Vector2(576, 322.5)
+scale = Vector2(2, 1.99074)
+texture = ExtResource("2_ofmdo")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxLayer2"]
+self_modulate = Color(0.262932, 0.262932, 0.262932, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("3_j2y4q")
+centered = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+modulate = Color(0.233925, 0.233925, 0.233925, 1)
+offset_top = 16.0
+offset_right = 1152.0
+offset_bottom = 232.0
+theme_override_fonts/normal_font = ExtResource("6_s330s")
+theme_override_font_sizes/normal_font_size = 150
+text = " After        darK"
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxLayer3"]
+self_modulate = Color(0.262932, 0.262932, 0.262932, 1)
+position = Vector2(576, 321.975)
+scale = Vector2(2, 2.0125)
+texture = ExtResource("4_d82bh")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+modulate = Color(0.154876, 0.154876, 0.154876, 1)
+position = Vector2(536, -24)
+amount = 1000
+process_material = SubResource("ParticleProcessMaterial_k3ncb")
+texture = ExtResource("9_ofoi8")
+lifetime = 7.0
+preprocess = 3.0
+speed_scale = 6.0
+fixed_fps = 60
+collision_base_size = 15.0
+visibility_rect = Rect2(-250, -100, 500, 500)
+local_coords = true
+trail_enabled = true
+trail_lifetime = 0.07
+trail_sections = 7
+trail_section_subdivisions = 1
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(1.5, 1.5)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxLayer"]
+self_modulate = Color(0.262932, 0.262932, 0.262932, 1)
+scale = Vector2(2.01389, 2)
+texture = ExtResource("5_rhmmc")
+centered = false
+
+[node name="Label" type="Label" parent="."]
+offset_left = -160.0
+offset_top = 512.0
+offset_right = 1615.0
+offset_bottom = 559.0
+theme_override_fonts/font = ExtResource("6_s330s")
+theme_override_font_sizes/font_size = 20
+text = "GRBOUZ"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 304.0
+offset_top = 408.0
+offset_right = 784.0
+offset_bottom = 544.0
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+modulate = Color(0.18359, 0.18359, 0.18359, 1)
+layout_mode = 2
+text = "PLAY"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+modulate = Color(0.144063, 0.144063, 0.144063, 1)
+layout_mode = 2
+text = "QUIT"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(544, 424)
+shape = SubResource("RectangleShape2D_8a0id")
+
+[node name="CharacterBody2D" parent="StaticBody2D" instance=ExtResource("9_sxad5")]
+position = Vector2(760, 408)
+
+[node name="LeaveTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="QuitConfirmDialog" type="AcceptDialog" parent="."]
+auto_translate_mode = 1
+size = Vector2i(226, 100)
+content_scale_mode = 1
+content_scale_aspect = 4
+dialog_text = "are u sure u wanna quit ???"
+
+[node name="PleaseDontLeaveDialog" type="AcceptDialog" parent="."]
+auto_translate_mode = 1
+size = Vector2i(396, 100)
+dialog_text = "please don't leave :( its dark in here when u leave"
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("7_j0jmk")]
+position = Vector2(560, 328)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

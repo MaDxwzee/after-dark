@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://7ofno0qi3s7v"]
+[gd_scene load_steps=27 format=3 uid="uid://7ofno0qi3s7v"]
 
 [ext_resource type="Texture2D" uid="uid://bdjlqtgg7w1k6" path="res://assests/Free Pixel Art Forest/AnimationSheet_Character.png" id="1_ucwem"]
 [ext_resource type="Script" path="res://code/mc.gd" id="1_ypcp4"]
@@ -7,6 +7,22 @@
 radius = 7.0
 height = 28.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwenn"]
+atlas = ExtResource("1_ucwem")
+region = Rect2(128, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3dhu"]
+atlas = ExtResource("1_ucwem")
+region = Rect2(160, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hhas"]
+atlas = ExtResource("1_ucwem")
+region = Rect2(192, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqb7a"]
+atlas = ExtResource("1_ucwem")
+region = Rect2(224, 160, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_u06pl"]
 atlas = ExtResource("1_ucwem")
 region = Rect2(0, 0, 32, 32)
@@ -14,6 +30,22 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_j5ut1"]
 atlas = ExtResource("1_ucwem")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jv77b"]
+atlas = ExtResource("1_ucwem")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0ujm"]
+atlas = ExtResource("1_ucwem")
+region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2wsg"]
+atlas = ExtResource("1_ucwem")
+region = Rect2(64, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7fs8"]
+atlas = ExtResource("1_ucwem")
+region = Rect2(96, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pn2bx"]
 atlas = ExtResource("1_ucwem")
@@ -67,6 +99,23 @@ region = Rect2(96, 64, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_qwenn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3dhu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hhas")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqb7a")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_u06pl")
 }, {
 "duration": 1.0,
@@ -75,6 +124,23 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jv77b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0ujm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2wsg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7fs8")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -133,7 +199,8 @@ shape = SubResource("CapsuleShape2D_m7hbx")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_qpdni")
-animation = &"idle"
+animation = &"jump"
+frame_progress = 0.655531
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -72)

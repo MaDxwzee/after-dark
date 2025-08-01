@@ -153,14 +153,12 @@ wait_time = 1.5
 one_shot = true
 
 [node name="QuitConfirmDialog" type="AcceptDialog" parent="."]
-auto_translate_mode = 1
 size = Vector2i(226, 100)
 content_scale_mode = 1
 content_scale_aspect = 4
 dialog_text = "are u sure u wanna quit ???"
 
 [node name="PleaseDontLeaveDialog" type="AcceptDialog" parent="."]
-auto_translate_mode = 1
 size = Vector2i(396, 100)
 dialog_text = "please don't leave :( its dark in here when u leave"
 

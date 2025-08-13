@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://7ofno0qi3s7v"]
+[gd_scene load_steps=27 format=3 uid="uid://7ofno0qi3s7v"]
 
 [ext_resource type="Texture2D" uid="uid://bdjlqtgg7w1k6" path="res://assests/Free Pixel Art Forest/AnimationSheet_Character.png" id="1_ucwem"]
 [ext_resource type="Script" path="res://code/mc.gd" id="1_ypcp4"]
@@ -7,6 +7,22 @@
 radius = 7.0
 height = 28.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_firup"]
+atlas = ExtResource("1_ucwem")
+region = Rect2(128, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_657hx"]
+atlas = ExtResource("1_ucwem")
+region = Rect2(160, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6bn6"]
+atlas = ExtResource("1_ucwem")
+region = Rect2(192, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uj62t"]
+atlas = ExtResource("1_ucwem")
+region = Rect2(224, 160, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_u06pl"]
 atlas = ExtResource("1_ucwem")
 region = Rect2(0, 0, 32, 32)
@@ -14,6 +30,22 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_j5ut1"]
 atlas = ExtResource("1_ucwem")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54tbn"]
+atlas = ExtResource("1_ucwem")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnf2x"]
+atlas = ExtResource("1_ucwem")
+region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khian"]
+atlas = ExtResource("1_ucwem")
+region = Rect2(64, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unn1w"]
+atlas = ExtResource("1_ucwem")
+region = Rect2(96, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pn2bx"]
 atlas = ExtResource("1_ucwem")
@@ -67,6 +99,23 @@ region = Rect2(96, 64, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_firup")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_657hx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6bn6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uj62t")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_u06pl")
 }, {
 "duration": 1.0,
@@ -75,6 +124,23 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54tbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnf2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khian")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_unn1w")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -133,10 +199,14 @@ shape = SubResource("CapsuleShape2D_m7hbx")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_qpdni")
-animation = &"idle"
+animation = &"fall"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -72)
-zoom = Vector2(2.5, 2.5)
+position = Vector2(-1, -28)
+zoom = Vector2(2, 2)
+limit_left = -700
 limit_bottom = 1550
 limit_smoothed = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_top_margin = 0.7
